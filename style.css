@@ -1,0 +1,299 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --neon-pink: #ff00ff;
+    --neon-blue: #00ffff;
+    --neon-purple: #bc13fe;
+    --neon-green: #0aff0a;
+    --neon-yellow: #ffe600;
+    --neon-red: #ff3131;
+    
+    --bg-dark: #0a0a12;
+    --bg-panel: #161623;
+    --bg-grid: #1f1f3a;
+    
+    --text-main: #e0e0e0;
+    --text-muted: #a0a0a0;
+    
+    --glow-blue: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+    --glow-pink: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink);
+    --shadow-hard: 4px 4px 0px rgba(0, 0, 0, 0.8);
+}
+
+body {
+    font-family: 'VT323', monospace; 
+    font-size: 1.2rem;
+    background-color: var(--bg-dark);
+    
+    background-image: 
+        linear-gradient(transparent 95%, rgba(0, 255, 255, 0.1) 95%),
+        linear-gradient(90deg, transparent 95%, rgba(0, 255, 255, 0.1) 95%);
+    background-size: 30px 30px;
+    min-height: 100vh;
+    color: var(--text-main);
+    position: relative;
+    overflow-x: hidden;
+}
+
+
+body::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+    background-size: 100% 4px;
+    z-index: 9999;
+    pointer-events: none; 
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand, .modal-title {
+    font-family: 'Press Start 2P', cursive; 
+    text-transform: uppercase;
+    line-height: 1.5;
+    letter-spacing: 1px;
+}
+
+header.bg-gradient-primary {
+    background: var(--bg-panel) !important;
+    border-bottom: 4px solid var(--neon-blue);
+    box-shadow: 0 0 15px var(--neon-blue);
+    padding: 1.5rem 0;
+}
+
+.icon-wrap {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-dark);
+    border: 2px solid var(--neon-pink);
+    color: var(--neon-pink);
+    font-size: 1.5rem;
+    box-shadow: var(--glow-pink);
+    animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 5px var(--neon-pink); }
+    50% { box-shadow: 0 0 20px var(--neon-pink), 0 0 10px var(--neon-purple); }
+}
+
+.card {
+    background: var(--bg-panel);
+    border: 2px solid var(--neon-purple);
+    border-radius: 0; 
+    box-shadow: var(--shadow-hard);
+    position: relative;
+}
+
+.card-header.bg-primary {
+    background: var(--neon-purple) !important;
+    color: #fff !important;
+    border-bottom: 2px solid var(--neon-blue);
+    border-radius: 0;
+    padding: 1rem;
+}
+
+.card-header h2 {
+    font-size: 1rem; 
+    text-shadow: 2px 2px #000;
+}
+
+.card-body {
+    background: var(--bg-panel);
+    color: var(--text-main);
+}
+
+
+.form-control, .form-select {
+    background-color: #000 !important;
+    border: 2px solid var(--neon-blue);
+    color: var(--neon-green) !important;
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+    border-radius: 0;
+    box-shadow: inset 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: #050505 !important;
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 10px var(--neon-pink);
+    outline: none;
+}
+
+.form-label {
+    color: var(--neon-blue);
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    text-shadow: 0 0 5px var(--neon-blue);
+}
+
+
+.btn {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 0;
+    border: 2px solid transparent;
+    position: relative;
+    transition: all 0.1s;
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    background: var(--neon-blue);
+    color: #000;
+    border-color: #fff;
+    box-shadow: 4px 4px 0px var(--neon-purple);
+}
+
+.btn-primary:hover {
+    background: #fff;
+    color: var(--neon-blue);
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--neon-purple);
+}
+
+.btn-outline-secondary {
+    border: 2px solid var(--text-muted);
+    color: var(--text-muted);
+    background: transparent;
+}
+
+.btn-outline-secondary:hover {
+    background: var(--text-muted);
+    color: #000;
+    box-shadow: 0 0 10px var(--text-muted);
+}
+
+.badge {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    padding: 0.5em 0.8em;
+    border-radius: 0;
+    border: 1px solid currentColor;
+}
+
+.badge.bg-light {
+    background: transparent !important;
+    color: var(--neon-yellow) !important;
+    border-color: var(--neon-yellow);
+    box-shadow: 0 0 5px var(--neon-yellow);
+}
+
+.text-bg-primary { background-color: var(--neon-blue) !important; color: #000 !important; }
+.text-bg-success { background-color: var(--neon-green) !important; color: #000 !important; }
+.text-bg-warning { background-color: var(--neon-yellow) !important; color: #000 !important; }
+.text-bg-info { background-color: var(--neon-purple) !important; color: #fff !important; }
+.text-bg-secondary { background-color: var(--text-muted) !important; color: #000 !important; }
+
+.list-group-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--neon-blue) !important;
+    margin-bottom: 5px;
+    color: var(--text-main);
+}
+
+.list-group-item:hover {
+    background: rgba(0, 255, 255, 0.1);
+    border-left: 5px solid var(--neon-pink) !important;
+}
+
+
+.alert {
+    border-radius: 0;
+    border-width: 2px;
+    font-family: 'VT323', monospace;
+    font-size: 1.4rem;
+    box-shadow: var(--shadow-hard);
+}
+
+.alert-success {
+    background-color: #000;
+    border-color: var(--neon-green);
+    color: var(--neon-green);
+    text-shadow: 0 0 5px var(--neon-green);
+}
+
+.alert-danger {
+    background-color: #000;
+    border-color: var(--neon-red);
+    color: var(--neon-red);
+    text-shadow: 0 0 5px var(--neon-red);
+}
+
+
+.modal-content {
+    background-color: var(--bg-panel);
+    border: 4px solid var(--neon-pink);
+    border-radius: 0;
+    box-shadow: 0 0 30px var(--neon-pink);
+}
+
+.modal-header {
+    border-bottom: 2px solid var(--neon-pink);
+    background-color: #000;
+}
+
+.modal-title {
+    color: var(--neon-pink);
+    font-size: 1rem;
+}
+
+.btn-close {
+    background-color: var(--neon-pink);
+    opacity: 1;
+}
+
+
+footer.bg-gradient-primary {
+    background: #000 !important;
+    border-top: 4px solid var(--neon-green);
+    margin-top: 4rem !important;
+}
+
+.footer-text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    color: var(--neon-green);
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #000;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--neon-purple);
+    border: 1px solid var(--neon-blue);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-pink);
+}
